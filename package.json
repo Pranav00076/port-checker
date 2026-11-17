@@ -1,0 +1,57 @@
+{
+  "name": "port-checker",
+  "version": "1.0.0",
+  "description": "PortSlug Port Checker - a simple Electron app built on the portslug npm package",
+  "main": "electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "vite build",
+    "dist": "npm run build && electron-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pranav00076/port-checker.git"
+  },
+  "keywords": [
+    "portslug",
+    "electron",
+    "port-checker"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pranav00076/port-checker/issues"
+  },
+  "homepage": "https://github.com/Pranav00076/port-checker#readme",
+  "dependencies": {
+    "portslug": "^0.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.3.0",
+    "electron": "^45.3.3",
+    "electron-builder": "^26.18.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "vite": "^8.3.8"
+  },
+  "build": {
+    "appId": "com.portslug.portchecker",
+    "productName": "PortSlug Port Checker",
+    "files": [
+      "electron/**",
+      "dist/**",
+      "public/portsluglogo.png",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

@@ -1,0 +1,260 @@
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0d0d17;
+  --card: #16162a;
+  --border: #262640;
+  --text: #e7e7f4;
+  --text-dim: #9b9bb5;
+  --purple: #7c5cff;
+  --cyan: #22d3ee;
+  --green: #22c55e;
+  --red: #ef4444;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Layout ---------- */
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: #34345a;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.hint {
+  color: var(--text-dim);
+  font-size: 13px;
+  margin: -10px 0 16px;
+}
+
+/* ---------- Form ---------- */
+.row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 140px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.field input {
+  background: #0f0f1d;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.15);
+}
+
+.buttons {
+  margin-top: 16px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--purple), var(--cyan));
+  color: #0d0d17;
+}
+
+.btn.secondary {
+  background: #232342;
+  color: var(--text);
+}
+
+/* ---------- Result ---------- */
+.status {
+  margin-top: 16px;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+.result {
+  margin-top: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.result p {
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+.result.free {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.result.busy {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.result.error {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.result.free .dot {
+  background: var(--green);
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.7);
+}
+
+.result.busy .dot {
+  background: var(--red);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.7);
+}
+
+/* ---------- Range table ---------- */
+.range-table {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.range-table th,
+.range-table td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.range-table th {
+  color: var(--text-dim);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.range-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.free-text {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.busy-text {
+  color: var(--red);
+  font-weight: 600;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 13px;
+  padding: 8px 0 16px;
+}
+
+.footer .brand {
+  color: var(--cyan);
+  font-weight: 600;
+}
